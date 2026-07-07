@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="pt-BR">
+<!-- Mirrored from milenapadilha.site/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Jun 2026 17:12:28 GMT -->
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="icon" type="image/svg+xml" href="/pics/icon-D66CjXlZ.svg">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Joyce Privs</title>
+    <meta name="description" content="Conteúdo exclusivo e interativo.">
+    <meta name="author" content="Privs">
+
+    <meta property="og:title" content="Vick Privs">
+    <meta property="og:description" content="Conteúdo exclusivo e interativo.">
+    <meta property="og:type" content="website">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@itsvictoriiaan">
+    <script type="module" crossorigin="" src="/scripts/index-wWeiMniP.js"></script>
+    <link rel="stylesheet" crossorigin="" href="/styles/index-BGHequUh.css">
+    <link rel="stylesheet" href="/styles/auth-gallery.css">
+  </head>
+
+  <body>
+    <div id="root"></div>
+  
+
+    <style>
+      .checkout-modal-overlay{position:fixed;inset:0;z-index:999999;background:rgba(0,0,0,.64);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:18px;box-sizing:border-box}.checkout-modal-overlay.active{display:flex}.checkout-pix-card{position:relative;width:min(408px,100%);max-height:92vh;overflow:auto;background:#fff;color:#18181b;border-radius:28px;padding:26px 24px 24px;box-shadow:0 24px 80px rgba(0,0,0,.34);border:1px solid rgba(255,255,255,.6);box-sizing:border-box}.checkout-modal-close{position:absolute;right:14px;top:14px;z-index:5;border:1px solid rgba(0,0,0,.08);background:#fff;color:#111;border-radius:999px;width:36px;height:36px;font-size:24px;line-height:30px;cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.12)}.checkout-modal-close:hover{background:#f4f4f5}.checkout-pix-title{font-size:24px;line-height:1.06;margin:0 42px 8px 0;font-weight:950;letter-spacing:-.04em}.checkout-pix-muted{color:#71717a;font-size:13px;line-height:1.45;margin:0}.checkout-pix-price{font-size:36px;font-weight:950;margin:18px 0 16px;color:#f97316;letter-spacing:-.04em}.checkout-pix-label{font-size:13px;color:#3f3f46;font-weight:800;display:block;margin:13px 0 6px}.checkout-pix-input{width:100%;box-sizing:border-box;border-radius:15px;border:1px solid #e4e4e7;background:#fff;color:#111;padding:13px 14px;font-size:15px;outline:none}.checkout-pix-input:focus{border-color:#f97316;box-shadow:0 0 0 4px rgba(249,115,22,.12)}.checkout-pix-btn{width:100%;border:0;border-radius:999px;background:#f97316;color:#fff;font-weight:900;padding:14px 15px;cursor:pointer;text-align:center;text-decoration:none;display:block;margin-top:14px;box-shadow:0 14px 32px rgba(249,115,22,.22)}.checkout-pix-btn:disabled{opacity:.65;cursor:wait}.checkout-pix-btn.secondary{background:#f4f4f5;color:#18181b;box-shadow:none}.checkout-pix-code{background:#fafafa;border:1px dashed #d4d4d8;border-radius:14px;padding:12px;word-break:break-all;font-family:monospace;color:#27272a;font-size:12px;max-height:110px;overflow:auto}.checkout-pix-error{background:#fef2f2;color:#b91c1c;border:1px solid #fecaca;border-radius:14px;padding:11px;margin:12px 0;font-size:13px;font-weight:700}.checkout-pix-ok{background:#ecfdf5;color:#047857;border:1px solid #bbf7d0;border-radius:14px;padding:11px;margin:12px 0;font-size:13px;font-weight:700}.checkout-pix-qr{display:flex;justify-content:center;margin:14px 0 8px}.checkout-pix-qr img{width:210px;max-width:100%;background:#fff;border:1px solid #eee;border-radius:18px;padding:10px}.checkout-pix-small{font-size:12px;color:#71717a;margin-top:12px;text-align:center}.checkout-hidden{display:none!important}@media(max-width:420px){.checkout-modal-overlay{padding:12px}.checkout-pix-card{padding:24px 22px;border-radius:26px}.checkout-pix-price{font-size:34px}.checkout-pix-qr img{width:190px}}
+    </style>
+    <script>
+      (function(){
+        var checkoutIdentifier='';
+        var checkoutEmail='';
+        var checkoutPlanKey='weekly';
+        var checkoutAccessPlan='weekly';
+        var checkoutPollTimer=null;
+        var plans={
+          weekly:{label:'Plano Semanal',price:'R$ 23,49',access:'weekly'},
+          weekly_promo:{label:'Plano Semanal Promocional',price:'R$ 11,75',access:'weekly'},
+          monthly:{label:'Plano Mensal',price:'R$ 31,90',access:'monthly'},
+          biannual:{label:'Plano Semestral',price:'R$ 60,49',access:'biannual'}
+        };
+        function $(id){ return document.getElementById(id); }
+        function getPlanFromUrl(url){
+          try{ return new URL(url, window.location.origin).searchParams.get('plan') || 'weekly'; }catch(_){ return 'weekly'; }
+        }
+        function ensureCheckoutModal(){
+          var modal=$('checkoutModalOverlay');
+          if(modal) return modal;
+          modal=document.createElement('div');
+          modal.id='checkoutModalOverlay';
+          modal.className='checkout-modal-overlay';
+          modal.innerHTML='\
+            <div class="checkout-pix-card" role="dialog" aria-modal="true" aria-label="Pagamento Pix">\
+              <button class="checkout-modal-close" type="button" aria-label="Fechar">&times;</button>\
+              <h2 class="checkout-pix-title">Pagamento Pix</h2>\
+              <p class="checkout-pix-muted" id="checkoutPixDescription">Após a confirmação do Pix, o acesso VIP será liberado automaticamente.</p>\
+              <div class="checkout-pix-price" id="checkoutPixPrice">R$ 23,49</div>\
+              <div id="checkoutPixError" class="checkout-pix-error checkout-hidden"></div>\
+              <form id="checkoutPixForm">\
+                <label class="checkout-pix-label">E-mail</label>\
+                <input class="checkout-pix-input" id="checkoutPixEmail" name="email" type="email" required autocomplete="email" placeholder="seuemail@exemplo.com">\
+                <button class="checkout-pix-btn" id="checkoutPixSubmit" type="submit">Gerar Pix</button>\
+              </form>\
+              <section id="checkoutPixArea" class="checkout-hidden">\
+                <div class="checkout-pix-ok">Pix gerado. Escaneie o QR Code ou copie o código abaixo e pague no app do seu banco.</div>\
+                <div class="checkout-pix-qr"><img id="checkoutPixQr" alt="QR Code Pix" class="checkout-hidden"></div>\
+                <label class="checkout-pix-label">Código Pix copia e cola</label>\
+                <div class="checkout-pix-code" id="checkoutPixCode"></div>\
+                <button class="checkout-pix-btn" id="checkoutPixCopy" type="button">Copiar Pix</button>\
+                <div class="checkout-pix-small" id="checkoutPixStatus">Aguardando confirmação do pagamento...</div>\
+                <button class="checkout-pix-btn checkout-hidden" id="checkoutPixRescue" type="button">Criar senha e acessar</button>\
+              </section>\
+            </div>';
+          document.body.appendChild(modal);
+          modal.querySelector('.checkout-modal-close').addEventListener('click',closeCheckoutModal);
+          modal.addEventListener('click',function(e){ if(e.target===modal) closeCheckoutModal(); });
+          $('checkoutPixCopy').addEventListener('click',function(){
+            var text=$('checkoutPixCode').innerText;
+            if(navigator.clipboard && text){ navigator.clipboard.writeText(text); }
+            $('checkoutPixStatus').innerText='Pix copiado. Após pagar, aguarde a confirmação.';
+          });
+          $('checkoutPixRescue').addEventListener('click',function(){ openPasswordModal(); });
+          $('checkoutPixForm').addEventListener('submit',submitCheckoutPix);
+          document.addEventListener('keydown',function(e){ if(e.key==='Escape' && modal.classList.contains('active')) closeCheckoutModal(); });
+          return modal;
+        }
+        function closeCheckoutModal(){
+          var modal=$('checkoutModalOverlay');
+          if(!modal) return;
+          modal.classList.remove('active');
+          document.documentElement.style.overflow='';
+          document.body.style.overflow='';
+          if(checkoutPollTimer){ clearTimeout(checkoutPollTimer); checkoutPollTimer=null; }
+        }
+        function resetCheckoutModal(plan){
+          var cfg=plans[plan] || plans.weekly;
+          checkoutPlanKey=plan;
+          checkoutAccessPlan=cfg.access;
+          checkoutIdentifier='';
+          checkoutEmail=localStorage.getItem('vip_payment_email') || '';
+          $('checkoutPixDescription').innerText=cfg.label+'. Após a confirmação do Pix, o acesso VIP será liberado automaticamente.';
+          $('checkoutPixPrice').innerText=cfg.price;
+          $('checkoutPixEmail').value=checkoutEmail;
+          $('checkoutPixError').classList.add('checkout-hidden');
+          $('checkoutPixError').innerText='';
+          $('checkoutPixForm').classList.remove('checkout-hidden');
+          $('checkoutPixArea').classList.add('checkout-hidden');
+          $('checkoutPixQr').classList.add('checkout-hidden');
+          $('checkoutPixQr').removeAttribute('src');
+          $('checkoutPixCode').innerText='';
+          $('checkoutPixStatus').innerText='Aguardando confirmação do pagamento...';
+          $('checkoutPixRescue').classList.add('checkout-hidden');
+          var submit=$('checkoutPixSubmit');
+          submit.disabled=false;
+          submit.innerText='Gerar Pix';
+          if(checkoutPollTimer){ clearTimeout(checkoutPollTimer); checkoutPollTimer=null; }
+        }
+        function showCheckoutError(message){
+          var el=$('checkoutPixError');
+          el.innerText=message || 'Erro ao gerar Pix.';
+          el.classList.remove('checkout-hidden');
+        }
+        async function submitCheckoutPix(e){
+          e.preventDefault();
+          $('checkoutPixError').classList.add('checkout-hidden');
+          var submit=$('checkoutPixSubmit');
+          submit.disabled=true;
+          submit.innerText='Gerando Pix...';
+          checkoutEmail=String($('checkoutPixEmail').value || '').trim().toLowerCase();
+          localStorage.setItem('vip_payment_email',checkoutEmail);
+          try{
+            var response=await fetch('/index.php?action=create_pix',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({plan:checkoutPlanKey,client:{email:checkoutEmail}})});
+            var j=await response.json();
+            if(!j.success) throw new Error(j.message || 'Erro ao gerar Pix.');
+            checkoutIdentifier=j.identifier;
+            localStorage.setItem('vip_payment_identifier',checkoutIdentifier);
+            localStorage.setItem('vip_purchase_intent',checkoutAccessPlan);
+            $('checkoutPixCode').innerText=j.pix_code || '';
+            var qr=$('checkoutPixQr');
+            qr.src=j.qr_code || ('https://api.qrserver.com/v1/create-qr-code/?size=280x280&data='+encodeURIComponent(j.pix_code || ''));
+            qr.classList.remove('checkout-hidden');
+            $('checkoutPixForm').classList.add('checkout-hidden');
+            $('checkoutPixArea').classList.remove('checkout-hidden');
+            pollCheckoutPix();
+          }catch(err){
+            showCheckoutError(err.message || 'Erro de conexão.');
+            submit.disabled=false;
+            submit.innerText='Gerar Pix';
+          }
+        }
+        async function pollCheckoutPix(){
+          if(!checkoutIdentifier) return;
+          try{
+            var response=await fetch('/index.php?action=payment_status&identifier='+encodeURIComponent(checkoutIdentifier));
+            var j=await response.json();
+            if(j.paid){
+              localStorage.setItem('vip_purchase_intent',checkoutAccessPlan);
+              localStorage.setItem('vip_payment_identifier',checkoutIdentifier);
+              if(j.email){ checkoutEmail=j.email; localStorage.setItem('vip_payment_email',checkoutEmail); }
+              $('checkoutPixStatus').innerText='Pagamento confirmado! Crie sua senha para entrar automaticamente.';
+              $('checkoutPixRescue').classList.remove('checkout-hidden');
+              setTimeout(openPasswordModal,500);
+              return;
+            }
+          }catch(_){}
+          checkoutPollTimer=setTimeout(pollCheckoutPix,5000);
+        }
+        function openPasswordModal(){
+          closeCheckoutModal();
+          if(window.VipAccessFlow && window.VipAccessFlow.startCreatePassword){
+            window.VipAccessFlow.startCreatePassword({identifier:checkoutIdentifier,email:checkoutEmail,plan:checkoutAccessPlan,redirect:'/vip-feed'});
+          }else{
+            window.location.href='/vip?criar-senha=1&tx='+encodeURIComponent(checkoutIdentifier || '');
+          }
+        }
+        window.openCheckoutPix=function(url){
+          var modal=ensureCheckoutModal();
+          resetCheckoutModal(getPlanFromUrl(url));
+          modal.classList.add('active');
+          document.documentElement.style.overflow='hidden';
+          document.body.style.overflow='hidden';
+          setTimeout(function(){ var email=$('checkoutPixEmail'); if(email) email.focus(); },80);
+        };
+      })();
+    </script>
+    <script src="/scripts/auth-gallery.js"></script>
+  </body>
+<!-- Mirrored from milenapadilha.site/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Jun 2026 17:12:28 GMT -->
+</html>

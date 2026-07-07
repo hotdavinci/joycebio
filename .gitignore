@@ -1,0 +1,22 @@
+# Vídeos grandes não devem ir para GitHub/Vercel
+videos/*.mp4
+videos/*.mov
+videos/*.webm
+videos/*.m4v
+videos/**/*.mp4
+videos/**/*.mov
+videos/**/*.webm
+videos/**/*.m4v
+imagens/*.mp4
+imagens/*.mov
+imagens/*.webm
+imagens/*.m4v
+imagens/**/*.mp4
+imagens/**/*.mov
+imagens/**/*.webm
+imagens/**/*.m4v
+
+node_modules/
+.vercel/
+.env
+.env.local

@@ -1,0 +1,92 @@
+{
+  "rewrites": [
+    {
+      "source": "/videos/(.*)",
+      "destination": "/api/deny-media"
+    },
+    {
+      "source": "/imagens/(.*)",
+      "destination": "/api/deny-media"
+    },
+    {
+      "source": "/vip-media/(.*)",
+      "destination": "/api/deny-media"
+    },
+    {
+      "source": "/index.php",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/checkout.php",
+      "destination": "/api/checkout"
+    },
+    {
+      "source": "/telegram.php",
+      "destination": "/api/telegram"
+    },
+    {
+      "source": "/webhook/syncpay.php",
+      "destination": "/api/webhook/syncpay"
+    },
+    {
+      "source": "/syncpay-debug",
+      "destination": "/api/syncpay-debug"
+    },
+    {
+      "source": "/login",
+      "destination": "/login.html"
+    },
+    {
+      "source": "/vip",
+      "destination": "/vip.html"
+    },
+    {
+      "source": "/ofertas",
+      "destination": "/vip.html"
+    },
+    {
+      "source": "/venda",
+      "destination": "/vip.html"
+    },
+    {
+      "source": "/laranjinha",
+      "destination": "/vip.html"
+    },
+    {
+      "source": "/vip-feed",
+      "destination": "/vip-feed.html"
+    },
+    {
+      "source": "/galeria-vip",
+      "destination": "/vip-feed.html"
+    },
+    {
+      "source": "/feed",
+      "destination": "/vip-feed.html"
+    },
+    {
+      "source": "/whatsapp",
+      "destination": "/api/whatsapp"
+    },
+    {
+      "source": "/resgate-semanal",
+      "destination": "/login.html"
+    },
+    {
+      "source": "/resgate-mensal",
+      "destination": "/login.html"
+    },
+    {
+      "source": "/resgate-semestral",
+      "destination": "/login.html"
+    }
+  ],
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "{imagens/**,api/_midias-vip/imagens/**,api/_midias-vip/fotos/**}"
+    },
+    "api/whatsapp.js": {
+      "includeFiles": "background.jpg"
+    }
+  }
+}

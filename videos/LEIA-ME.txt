@@ -1,0 +1,7 @@
+Coloque aqui todos os VÍDEOS que devem aparecer para o cliente na galeria VIP.
+
+Formatos aceitos:
+.mp4, .webm, .mov, .m4v
+
+Pode criar subpastas, se quiser.
+Depois de adicionar/remover arquivos, faça novo deploy na Vercel.

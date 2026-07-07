@@ -1,0 +1,7 @@
+Coloque aqui todas as IMAGENS que devem aparecer para o cliente na galeria VIP.
+
+Formatos aceitos:
+.jpg, .jpeg, .png, .webp, .gif, .avif, .svg
+
+Pode criar subpastas, se quiser.
+Depois de adicionar/remover arquivos, faça novo deploy na Vercel.
